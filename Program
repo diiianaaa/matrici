@@ -1,0 +1,115 @@
+using System;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int i, j;
+
+            Console.WriteLine("Introduceti numarul de linii:");
+            int l = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Introduceti numarul de coloane:");
+            int c = int.Parse(Console.ReadLine());
+
+            int[,] m = new int[l, c];
+            int[,] n = new int[l, c];
+
+            Console.WriteLine("Introduceti elementele matricii 1:");
+            for (i = 0; i < l; i++)
+            {
+                for (j = 0; j < c; j++)
+                {
+                    Console.Write("A[{0}][{1}]=", i, j);
+                    m[i, j] = int.Parse(Console.ReadLine());
+                }
+            }
+
+            Console.WriteLine("Introduceti elementele matricii 2:");
+            for (i = 0; i < l; i++)
+            {
+                for (j = 0; j < c; j++)
+                {
+                    Console.Write("B[{0}][{1}]=", i, j);
+                    n[i, j] = int.Parse(Console.ReadLine());
+                }
+            }
+
+            Console.WriteLine("Matricea 1 are elementele:");
+            for (i = 0; i < l; i++)
+            {
+                for (j = 0; j < c; j++)
+                    Console.Write(m[i, j] + " ");
+                Console.WriteLine();
+            }
+
+            Console.WriteLine("Matricea 2 are elementele:");
+            for (i = 0; i < l; i++)
+            {
+                for (j = 0; j < c; j++)
+                    Console.Write(n[i, j] + " ");
+                Console.WriteLine();
+            }
+
+            int S = 0;
+
+            for (i = 0; i < l; i++)
+            {
+                for (j = 0; j < c; j++)
+
+                {
+                    S = m[i, j] + n[i, j];
+                    Console.Write("Adunarea elementelor matricei: A[{0}][{1}]=", i, j);
+                    Console.Write(S);
+                    Console.WriteLine();
+
+                }
+            }
+                Console.Write("Inmultirea uneia din matrici cu un scalar:");
+                Console.Write("Scalarul este:");
+                int scalar = int.Parse(Console.ReadLine());
+                int P = 1;
+
+            for (i = 0; i < l; i++)
+            {
+                for (j = 0; j < c; j++)
+                {
+                    P = m[i, j] * scalar;
+                    Console.Write("inmultirea elementelor matricei cu scalarul: A[{0}][{1}]=", i, j);
+                    Console.Write(P);
+                    Console.WriteLine();
+
+                }
+            }
+
+            int[,] c1 = new int[l, c];
+
+            for (i = 0; i < l; i++)
+            {
+                for (j = 0; j < c; j++)
+                {
+                    c1[i, j] = 0;
+                    for (int k1 = 0; k1 < c; k1++)
+                    {
+                        c1[i, j] += m[i, k1] * n[k1, j];
+                    }
+                }
+            }
+            Console.WriteLine("Produsul matricilor este :");
+            for (i = 0; i < l; i++)
+            {
+                for (j = 0; j < c; j++)
+                {
+                    Console.Write(c1[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
+
+        }
+
+            }
+        }
+    
